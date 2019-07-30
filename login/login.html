@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title> Login </title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="stars"></div>
+    
+    <h1 style="color:white;margin-top:-38vh;font-size:50px;font-family:Trebuchet MS;"> Sign Up </h1>
+<h1>
+<nav class="navbar" style="position:absolute;margin-top:-30vh;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:white">SAE</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#" style="color:white;font-size:20px;margin-left:80vw;">Home</a></li>
+      <li><a href="#" style="color:white;font-size:20px;">Log In</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="container-fluid">
+    <div class="row shadow" style="border:0.75px solid white;padding:50px;width:60vw;margin-left:20vw;">
+      <div class="form-group fg" style="margin-bottom:4vh;">
+        <label style="color:white;margin-left:-30vw;font-weight:none;font-family:Trebuchet MS;"> First Name </label>
+        <div class="input-group">
+          <input type="email" class="form-control" style="margin-left:20vw;margin-top:-4vh;background-color:#2d3037;">
+        </div>
+      </div>
+      <div class="form-group fg" style="margin-bottom:4vh;">
+        <label style="color:white;margin-left:-30vw;font-family:Trebuchet MS;"> Last Name </label>
+        <div class="input-group">
+          <input type="email" class="form-control" style="margin-left:20vw;margin-top:-4vh;background-color:#2d3037;">
+        </div>
+      </div>
+      <div class="form-group fg" style="margin-bottom:4vh;">
+        <label style="color:white;margin-left:-30vw;font-family:Trebuchet MS;"> Email </label>
+        <div class="input-group">
+          <input type="email" class="form-control" style="margin-left:20vw;margin-top:-4vh;background-color:#2d3037;">
+        </div>
+      </div>
+      <div class="form-group fg" style="margin-bottom:4vh;">
+        <label style="color:white;margin-left:-30vw;font-family:Trebuchet MS;"> Mobile </label>
+        <div class="input-group">
+          <input type="email" class="form-control" style="margin-left:20vw;margin-top:-4vh;background-color:#2d3037;">
+        </div>
+      </div>
+    </div>
+  </div>
+  </h1>
+  </body>
+  <script>
+    var body = document.body,
+    canvas = document.getElementById('stars');
+
+function createStar() {
+  var star = document.createElement('span');
+  star.className = 'star';
+  
+  var width = canvas.scrollWidth,
+      height = canvas.scrollHeight;
+  
+  star.style.left = Math.random() * width + 'px';
+  star.style.top = Math.random() * height + 'px';
+  
+  star.style.width = star.style.height = 2 + Math.random() * 6 + 'px';
+  
+  var time = 5 + Math.random() * 10;
+  
+  star.style.animation = 'fade ' + time + 's'
+  
+  canvas.appendChild(star);
+  
+  setTimeout(function () {
+    canvas.removeChild(star);
+  }, 1000 * time);
+  return star;
+}
+
+for (var i = 0; i < 50; i++) createStar();
+
+setInterval(function () {
+  for (var i = 0; i < 5; i++) createStar();
+}, 250);
+
+  </script>
+</html>

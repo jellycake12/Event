@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QUIZ</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body style="color:white;">
+<nav class="navbar navbar-responsive" style="position:absolute;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:white;font-size:20px;margin-left:3vw;">SAE</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#" style="color:white;font-size:20px;margin-left:78vw;">Home</a></li>
+      <li><a href="#" style="color:white;font-size:20px;">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container" style="position:absolute;z-index:30;">
+  <h1 style="margin-left:40vw;margin-top:20vh;font-size:45px;"> QUIZ ROUND </h1>
+  <div class="row" style="margin-top:10vh;box-shadow(-1px 1px 50px 10px black)">
+      <p style="margin-left:41.5vw;font-size:35px;">Full Form is SAE?</p>
+      <textarea class="form-control" rows="5" id="comment" style="border:0;background-color:#2f292a;color:white;resize:none;position:absolute;width:25vw;margin-left:35vw;margin-top:5vh;"></textarea>   
+      <button type="button" class="btn btn_1" style="background-color:#2f292a;position:absolute;margin-left:54vw;margin-top:20vh;color:white;">SUBMIT</button>
+  </div>
+</div>
+<!--<p style="position:absolute;text-align:center;">What is SAE</p>
+    <p style="position:absolute;margin-left:12vw;">SOCIETY OF AUTOMOTIVE</p>-->
+<!-- particles.js container -->
+<div id="particles-js">
+  
+</div>
+
+<!-- scripts -->
+<script src="../particles.js"></script>
+<script src="js/app.js"></script>
+
+<!-- stats.js -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script>
+  $(document).ready(function(){
+    $('.btn_1').click(function(){
+      Swal.fire({
+  position: 'center',
+  type: 'success',
+  title: 'Answer Submitted Succesfully',
+  showConfirmButton: false,
+  timer: 1500
+})
+    })
+  })
+  var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+  
+</script>
+
+</body>
+</html>
